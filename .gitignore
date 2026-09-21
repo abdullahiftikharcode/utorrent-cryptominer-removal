@@ -1,0 +1,20 @@
+# Byte-compiled
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Actual malware samples (NEVER commit these)
+*.exe
+*.sys
+*.dll
+!scripts/*.ps1

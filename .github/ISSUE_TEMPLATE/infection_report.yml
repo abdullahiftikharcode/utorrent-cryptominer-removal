@@ -1,0 +1,78 @@
+name: 🐛 Infection Report
+description: Report that you were infected by the uTorrent cryptominer
+title: "[Infection Report] "
+labels: ["infection-report", "ioc"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting! Your data helps us track variants and warn others.
+        
+  - type: input
+    id: utorrent-version
+    attributes:
+      label: uTorrent Version
+      description: Which version of uTorrent did you have installed?
+      placeholder: "e.g., 3.6.0.46896 or uTorrent Web"
+    validations:
+      required: true
+
+  - type: input
+    id: install-date
+    attributes:
+      label: Approximate Install/Update Date
+      description: When did you install or last update uTorrent?
+      placeholder: "e.g., July 2026"
+    validations:
+      required: false
+
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows Version
+      description: "Run `winver` to find this"
+      placeholder: "e.g., Windows 11 23H2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: file-hash
+    attributes:
+      label: File Hashes (if available)
+      description: |
+        If you still have the malware files, run:
+        ```powershell
+        Get-FileHash "$env:AppData\Dll\dlIhost.exe" -Algorithm SHA256
+        ```
+      placeholder: "SHA256: ..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: discovery-method
+    attributes:
+      label: How did you discover the infection?
+      options:
+        - Task Manager showed high CPU on "COM Surrogate"
+        - Antivirus/Malwarebytes detected it
+        - Found this repository while searching
+        - Someone told me to check
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-details
+    attributes:
+      label: Additional Details
+      description: Any other information about your experience
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: removal-success
+    attributes:
+      label: Removal Status
+      options:
+        - label: I successfully removed the miner using the provided scripts
+        - label: I had issues with removal (please describe above)

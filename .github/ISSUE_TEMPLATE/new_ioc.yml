@@ -1,0 +1,31 @@
+name: 🔑 New IOC / Variant
+description: Submit new indicators of compromise or a variant of the threat
+title: "[IOC] "
+labels: ["ioc", "variant"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit new file hashes, paths, scheduled task names, or other IOCs from variants.
+        
+  - type: textarea
+    id: ioc-details
+    attributes:
+      label: IOC Details
+      description: |
+        Describe the indicators you found. Include file paths, hashes, registry keys, process names, etc.
+      placeholder: |
+        File: dlIhost.exe
+        SHA256: abc123...
+        Path: %AppData%\Roaming\Dll\
+        Scheduled Task: \UpdateTask
+    validations:
+      required: true
+
+  - type: textarea
+    id: differences
+    attributes:
+      label: How does this differ from the documented threat?
+      description: What's different about this variant compared to what's already documented?
+    validations:
+      required: false
